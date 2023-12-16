@@ -2,7 +2,7 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { ListItemIcon, ListItemText, Typography } from '@mui/material';
+import { Box, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import { ContentCopy, ContentCut, ContentPaste } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 export default function WorkSpace() {
@@ -16,7 +16,7 @@ export default function WorkSpace() {
   };
 
   return (
-    <div>
+    <Box>
       <Button
         id="basic-button-workSpace"
         aria-controls={open ? 'basic-menu' : undefined}
@@ -64,6 +64,6 @@ export default function WorkSpace() {
           </Typography>
         </MenuItem>
       </Menu>
-    </div>
+    </Box>
   );
 }

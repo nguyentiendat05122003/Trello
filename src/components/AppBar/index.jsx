@@ -9,10 +9,12 @@ import Templates from "./Menu/Templates";
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import Profile from "./Menu/Profile";
+import AddIcon from '@mui/icons-material/Add';
+import { useState } from "react";
 export default function AppBar() {
+  const [searchValue,setSearchValue] = useState('')
   return (
     <Box
-    px={2} 
     sx=
     {{
       width:'100%',
@@ -20,7 +22,8 @@ export default function AppBar() {
       display:"flex",alignItems:'center',
       justifyContent:'space-between',
       gap:2,
-      overflowX:'scroll'
+      overflowX:'scroll',
+      px:2
       }}
       >
         <Box sx={{display:'flex',alignItems:'center', gap:2}}>
@@ -40,12 +43,12 @@ export default function AppBar() {
             <Recent/>
             <Starred/>
             <Templates/>
-            <Button variant="outlined">Create</Button>
+            <Button startIcon={<AddIcon/>} variant="outlined">Create</Button>
         </Box>
         </Box>
               
         <Box sx={{display:'flex',alignItems:'center', gap:2}}>
-          <TextField id="outline-search" sx={{minWidth:'120px'}} label="Search..." type="search" size="small"/>
+          <TextField value={searchValue} onChange={(e)=>{setSearchValue(e.target.value)}} id="outline-search" sx={{minWidth:'120px'}} label="Search..." type="search" size="small"/>
           <ModeSelect />
           <Tooltip title="Notification">
           <Badge color="secondary" variant="dot" sx={{cursor:'pointer',color:'primary.main'}}>
